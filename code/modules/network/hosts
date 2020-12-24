@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+#检测hosts是否有添加某些主机的解析条目
+#入口: <hostname> [...]
+#出口: 检测通过，输出yes
+
+t=1
+path=/etc/hosts
+
+for i in "$@"; do
+    grep -i "$i" $path && ping -c3 "$i"
+    if [[ $? != 0 ]]; then
+        t=0
+        break
+    fi
+done
+
+if [[ $t == 1 ]]; then echo yes; fi
+
+    
