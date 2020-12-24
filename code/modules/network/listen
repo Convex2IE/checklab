@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+t=1
+
+for i in "$@"; do
+    ss -ntl | grep "$i"
+    if [[ $? != 0 ]]; then
+        t=0
+        break
+    fi
+done
+
+if [[ $t == 1 ]]; then echo yes; fi
