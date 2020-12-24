@@ -1,1 +1,1 @@
-# checklab
+Initialize project
