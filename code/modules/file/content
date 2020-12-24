@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# 此模块用于检查是否包括指定文件内是否同时包含多个指定正则表达式内容
+# 输入: <filename> <pattern> [...]
+# 输出: 符合条件则输出yes
+
+t=1
+skip=1
+for i in "$@"; do
+    if [[ $skip == 1 ]]; then
+        skip=0
+        continue
+    fi
+    egrep "$i" $1
+    if [[ $? != 0 ]]; then
+        t=0
+        break
+    fi
+done
+
+if [[ $t == 1 ]]; then echo yes; fi
