@@ -18,7 +18,7 @@ import random
 import string
 import paramiko
 
-os.chdir('/usr/local/checklab/code')
+# os.chdir('/usr/local/checklab/code')
 check_module = sys.argv[2].replace('.', '/')
 check_param = ' '.join(sys.argv[3:])
 
@@ -51,7 +51,8 @@ class Remotecheck:
             execcommand = self.execfile + ' ' + self.check_param
             stdin, stdout, stderr = client.exec_command(execcommand)
             # 与下面的finally配合，可能存在bug
-            print(stdout.read())
+            # 对bytes类型进行转换
+            print(stdout.read().decode())
         finally:
             stdio, stdout, stderr = client.exec_command('rm -f ' + self.execfile)
             client.close()
