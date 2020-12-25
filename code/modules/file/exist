@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-ls "$1" && echo yes
+#此模块检测是否同时存在某些文件(夹)
+#入口: 某些文件(夹)名
+#出口: 检测通过，输出yes
+
+ls "$@" && echo yes

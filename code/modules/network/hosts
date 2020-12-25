@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#检测hosts是否有添加某些主机的解析条目
+#此模块检测hosts是否有添加某些主机的解析条目
 #入口: <hostname> [...]
 #出口: 检测通过，输出yes
 
