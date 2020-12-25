@@ -8,14 +8,14 @@ import sys
 import subprocess
 import re
 
-agrs = ' '.join(sys.argv[1:-2])
+args = ' '.join(sys.argv[1:-2])
 patten = sys.argv[-2]
 if sys.argv[-1] == '1':
     flags = re.I
 else:
     flags = 0
 
-sp = subprocess.run(agrs, encoding='utf-8', stdout=subprocess.PIPE, timeout=60, shell=True)
+sp = subprocess.run(args, encoding='utf-8', stdout=subprocess.PIPE, timeout=60, shell=True)
 
 result = re.search(patten, sp.stdout, flags)
 
