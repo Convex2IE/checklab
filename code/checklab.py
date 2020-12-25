@@ -18,7 +18,7 @@ import random
 import string
 import paramiko
 
-# os.chdir('/usr/local/checklab/code')
+os.chdir('/usr/local/checklab/code')
 check_module = sys.argv[2].replace('.', '/')
 check_param = ' '.join(sys.argv[3:])
 
