@@ -53,7 +53,7 @@ class Remotecheck:
             # 与下面的finally配合，可能存在bug
             print(stdout.read())
         finally:
-            stdio, stdout, stderr = client.exec_command('rm -f' + self.execfile)
+            stdio, stdout, stderr = client.exec_command('rm -f ' + self.execfile)
             client.close()
 
     # 未考虑｜未验证 KeyPolicy，暂修改客户机 ssh_config
