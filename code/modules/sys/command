@@ -15,7 +15,7 @@ if sys.argv[-1] == '1':
 else:
     flags = 0
 
-sp = subprocess.run(args, encoding='utf-8', stdout=subprocess.PIPE, timeout=60, shell=True)
+sp = subprocess.run(args, universal_newlines=True, stdout=subprocess.PIPE, timeout=60, shell=True)
 
 result = re.search(patten, sp.stdout, flags)
 
